@@ -11,3 +11,5 @@ Vue指令:
             数据准备好了，display:none; 取消了，此指令加在html页面中的id="app"的元素上
 
             vue1.0:v-cloak加在body上面
+
+            
