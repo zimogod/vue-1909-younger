@@ -1,15 +1,21 @@
 import Vue from 'vue'
 // ES6引入依赖的新语法
 import VueRouter from 'vue-router'
-// 引入home组件
-import Home from '../client/home';
+// 引入home组件 第一种缓存加载路由
+// import Home from '../client/home';
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    // 路由懒加载
+    component: () => import('../client/home.vue')
+  },
+  {
+    path: '/page',
+    name: 'page',
+    component: () => import('../client/page.vue')
   },
   // {
   //   path: '/about',

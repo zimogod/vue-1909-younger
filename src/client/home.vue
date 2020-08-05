@@ -2,17 +2,23 @@
 <template>
 <!-- template里面只能包含一个子元素 -->
   <div class="home">
-      我是home组件
-      <div class="msg">{{ msg }}:{{ arr.join('、') }}</div>
-      <ul class="list">
-          <li>{{ num }}</li>
+      <!-- 我是home组件 -->
+      <!-- {{ arr.join('、') }} -->
+      <div class="msg">
+          {{ msg }} {{ num }}
+          <p>易烊千玺超级帅 无敌帅 </p>
+          <p>秦霄贤也是</p>
+          Dqx是一个聪明的姑娘
+      </div>
+      <!-- <ul class="list">
+          <li> 11.28</li>
           <li>{{ 5*5 }}</li>
           <li>{{ 5+5 }}</li>
       </ul>
       <template>
           <div>你好啊</div>
           <div>大家好啊</div>
-      </template>
+      </template> -->
   </div>
 </template>
 // 写JS
@@ -24,9 +30,9 @@ export default {
     data(){
         return {
             flag:true,
-            msg:'树',
+            msg:'丁琪璇＆易烊千玺',
             arr:[2,3,4,5,6],
-            num:90
+            num:'会长长久久'
         }
     },
     methods:{
@@ -49,10 +55,13 @@ export default {
     width:100%;
     height: 100%;
     background: #ccc;
+    color: pink;
     .msg{
         width: 100%;
-        height: 100px;
-        background: hotpink;
+        height: 100vh;
+        background: #857;
+        text-align: center; 
+        font-size: 25px;
     }
     .list{
         background: yellow;
