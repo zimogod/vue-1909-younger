@@ -1,0 +1,52 @@
+// 1、
+// 直接单个暴露
+// export let addNum = () =>{
+//     return 'jia';
+// }
+// export function reduceNum(){
+//     return 'jian';
+// }
+
+// 2、
+// 工厂模式暴露
+// export let eventObj = {
+//     addNum:()=>{
+//         return 'jia';
+//     },
+//     reduceNum:()=>{
+//         return 'jia';
+//     },
+//     num:100
+// }
+
+// 3、
+// 默认暴露
+let eventObj = {
+    addNum:()=>{
+        return 'jia';
+    },
+    reduceNum:()=>{
+        return 'jia';
+    },
+    num:100
+}
+export default eventObj;
+
+
+
+
+
+
+// 1、
+// 直接单个暴露按需引入
+// import { addNum,reduceNum } from './router/aaa'
+// 直接单个暴露的引入方式
+// import * as types from './router/aaa'
+
+// 2、
+// 工厂模式暴露的引入方式
+// import { eventObj } from './router/aaa'
+
+// 3、
+// 默认暴露的引入方式
+import zimo from './router/aaa'

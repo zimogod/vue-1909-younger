@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .msg{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="msg">{{ msg }}</div>
+        <div>{{ 5*5 }}不计算惩罚{{ str }}</div>
+        <div>{{ 5+5 }}</div>
+        <div>{{ hello }}</div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#box',
+            data(){
+                return {
+                    msg:'我是第一个Vue程序！',
+                    str:'5*5',
+                    hello:'everybody'
+                }
+            },
+            methods:{
+                handleClick(){
+                    alert('第一个点击事件')
+                }
+            },
+            mounted(){
+                // this.handleClick();
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<html>
+<head>
+    <title>js拓扑图-vis插件</title>
+    <link href="https://cdn.bootcss.com/vis/4.21.0/vis.min.css" rel="stylesheet">
+    <style type="text/css">
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+<script src="https://cdn.bootcss.com/vis/4.21.0/vis.min.js"></script>
+<script type="text/javascript">
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: 'Node 1'},
+        {id: 2, label: 'Node 2'},
+        {id: 3, label: 'Node 3'},
+        {id: 4, label: 'Node 4'},
+        {id: 5, label: 'Node 5'}
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 1, to: 3},
+        {from: 1, to: 2},
+        {from: 2, to: 4},
+        {from: 2, to: 5}
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>
+ 
+
+<html>
+<head>
+<title>js拓扑图-vis插件</title>
+<link href="https://cdn.bootcss.com/vis/4.21.0/vis.min.css" rel="stylesheet">
+<style type="text/css">
+    .m-mynetwork {width: 600px;height: 400px;border: 1px solid lightgray;}
+</style>
+</head>
+<body>
+<div id="mynetwork" class="m-mynetwork"></div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/vis/4.21.0/vis.min.js"></script>
+<script type="text/javascript">
+var dataDemo = {
+	"nodes": [
+		{
+			"os": "linux",
+			"group": "island_monkey_linux",
+			"id": "5b08001853c3aef2788d7183",
+			"dead": true,
+			"label": "10.10.10.144"
+		}, {
+			"os": "linux",
+			"group": "island_monkey_linux",
+			"id": "5b08007453c3aef2788d7bc9",
+			"dead": true,
+			"label": "10.10.10.147"
+		}, {
+			"os": "linux",
+			"group": "monkey_linux",
+			"id": "5b0800b253c3aef2788d84f5",
+			"dead": true,
+			"label": "10.10.10.158"
+		}
+	],
+	"edges": [{
+		"to": "5b08007453c3aef2788d7bc9",
+		"from": "5b08001853c3aef2788d7183",
+		"id": "5b08004ae138230001dc670b",
+		"group": "exploited"
+	}, {
+		"to": "5b0800b253c3aef2788d84f5",
+		"from": "5b08001853c3aef2788d7183",
+		"id": "5b08008ae138230001dc6718",
+		"group": "exploited"
+	}]
+};	
+</script>
+<script>
+$(function () {
+    var myAction = {}, network;
+    var dom = {
+        container: document.getElementById('mynetwork')
+    };
+
+    $.extend(myAction, {
+        initVis: function () {
+            var nodes = new vis.DataSet([
+            ]);
+
+            var edges = new vis.DataSet([
+            ]);
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };  
+
+            var options = {
+                nodes: {
+                    shape: 'dot',
+                    scaling: {
+                        min: 20,
+                        max: 30,
+                        label: {
+                            min: 14,
+                            max: 30,
+                            drawThreshold: 9,
+                            maxVisible: 20
+                        }
+                    },
+                    font: {
+                        size: 14,
+                        face: 'Helvetica Neue, Helvetica, Arial',
+                        color: "#999999"
+                    }
+                },
+                groups: {
+                    monkey_linux: {
+                        shape: 'image',
+                        image: "img/do_linu.svg"
+                    },
+                    island_monkey_linux: {
+                        shape: 'image',
+                        image: {
+                            unselected: 'img/apple.svg',
+                            selected: 'img/lp.svg'
+                        }
+                    }
+
+                },
+                interaction: {
+                    hover: true,
+                    hoverConnectedEdges: false,
+                    selectConnectedEdges: true,
+                },
+                "edges": {
+                    "smooth": {
+                        "forceDirection": "none",
+                        "roundness": 0.8
+                    }
+                },
+                "physics": {
+                    "forceAtlas2Based": {
+                        "springLength": 100,
+                        "gravitationalConstant": -20
+                    },
+                    "minVelocity": 0.75,
+                    "solver": "forceAtlas2Based"
+                }
+            };        
+            network = new vis.Network(dom.container, data, options);       
+        },
+        buildDemoData: function  (data) {
+            var eMap = {},
+                model = {},
+                ret = [],
+                models = data.edges;
+            for (var i = 0; i < models.length; i++) {
+                model = models[i];
+                if (!eMap[model.to]) {
+                    models[i].arrows = 'to';
+                    models[i].width = 3;
+                    if (models[i].group == "exploited") {
+                        models[i].color = {
+                            color: "rgb(204, 2, 0)"
+                        }
+                    } else if (models[i].group == "scan") {
+                        models[i].color = {
+                            color: "rgb(255, 153, 0)"
+                        }
+                    }
+                    ret.push(models[i]);
+                    eMap[model.to] = 1;
+                }
+            }
+            return {
+                nodes: data.nodes,
+                edges: ret
+            }
+        },
+        resetNetworkByJson: function  (data) {
+            var obj = data;
+            nodes = obj.nodes;
+            edges = obj.edges;
+            startpages = obj.startpages;
+            network.setData({
+                nodes: nodes,
+                edges: edges
+            });
+        }               
+    })
+
+    var init = function () {
+        myAction.initVis();
+        var myData = myAction.buildDemoData(dataDemo);
+        myAction.resetNetworkByJson(myData);
+    }();
+});	
+</script>
+</body>
+</html>

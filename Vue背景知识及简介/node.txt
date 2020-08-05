@@ -1,0 +1,92 @@
+Vue简介：
+    中国人开发出来的（尤大大：尤雨溪），于2014年开发出来，
+在2014年底正式开源，目前的版本是Vue:3.0 beta,刚开始是用
+来写页面的一个框架，更适用于移动端
+
+beta:马上要进行发布的
+
+Vue： 
+    1、vue模板： template           写页面的
+    2、路由(页面跳转)： vue-router   写跳转
+    3、前后端交互：axios             请求数据
+    4、vuex：管理数据                管理数据
+
+Vue特点：
+    1、简单易上手 
+    2、数据驱动视图
+    3、渐进式框架（只用Vue模板）
+    4、MVVM框架
+    5、虚拟DOM
+
+MVC->MVVM
+C:controller控制器
+M:mode数据层
+V:视图层（view）
+VM:ViewModel 
+
+浏览器认识三剑客：
+    JS html css
+
+    index.vue文件里面
+
+Vue-cli:脚手架，可以搭建一个vue项目的框架，只安装一次
+必须有以下环境：
+    1、node环境   去官网下载即可
+    2、webpack环境  模块打包机   模块管理器
+        ① cnpm/npm install webpack -g 
+        ② cnpm/npm install webpak-cli -D
+    3、vue全局环境
+        ① cnpm/npm install @vue/cli -g 
+
+创建一个Vue项目：
+    1、vue create 项目名称 
+
+项目的目录结构：
+    node_modules:依赖（包），如何重新下载：npm/cnpm install
+    public:最后所有的.vue文件生成的前端三剑客的代码都自动加载到当前public
+           里面的index.html文件内   
+    src:是开发者主要写代码的文件夹
+    assets：主要存放一些静态图片
+    components:存放公共组件的一个文件夹（不确定）
+    router:是专门管理路由跳转的文件夹 
+    store:专门管理数据的文件夹（可用可不用）
+    views:专门写组件的文件夹
+    App.vue:是唯一的入口.vue文件 
+    main.js:唯一的入口js文件 
+    package.json:就是你的项目配置信息（npm init）
+
+        package.json:
+            dependencies:安装的包，最终要发布上线依赖（包）
+                cnpm/npm install xxx -S   -S:全称 --save  
+            devDependencies:开发项目时，需要的依赖（不上线）
+                cnpm/npm install xxx -D   -D:全称 --save-dev  
+
+能修改（删除）的文件夹及文件：views、router、store、components、main.js
+不能修改的文件及文件夹：src、node_modules、配置文件、assets  
+App.vue:必须要有个组件 router-view 显示容器组件
+
+import * as types from './router/aaa'
+types:aaa.js里面所有暴露的内容都缓存到types对象中去
+    调用时，直接通过types对象的方式去调用
+
+xxx as xxx: ... 例如 ...
+
+
+1、import xxx from '路径' 引入文件语法
+    相当于：
+    var xxx = require('xxx')
+2、export default 变量    暴露一个变量或者一个文件
+3、router-view:vue自带的显示容器组件
+
+
+
+
+
+
+
+
+
+
+
+
+
