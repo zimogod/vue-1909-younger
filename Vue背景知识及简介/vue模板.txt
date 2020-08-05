@@ -50,19 +50,7 @@ npm run serve: 启动服务
 router-link: router-link也是组件 原理：就是a标签，通过锚点进行跳转 to属性的原理是 href
 router-view:路由组件
 
-Vue：指令 
-    概念：vue中的指令，可以快速帮助我们进行页面数据的绑定，循环，嵌套等等（）为了方便使用template模板 
- 
-    v-model:用于input、文本域等输入框内指令，更能体现数据双向绑定原理,多用于表单
 
-    v-for:循环，用于循环DOM结构，用在template,数据的多少决定了循环的次数，循环自身及所有子元素
-          循环的元素必须要添加key值，为了安全性、性能（不让已经循环过的元素再次循环，再次加载）
-    v-bind:用于给template模板元素绑定属性  把v-bind简写成 :
-    v-on:用于绑定事件  简写：@click 
-    v-cloak:解决vue项目刷新时，花括号闪烁问题，数据没有准备好之前，任何东西都display:none;
-            数据准备好了，display:none; 取消了，此指令加在html页面中的id="app"的元素上
-
-            vue1.0:v-cloak加在body上面
 
 
 
