@@ -4,12 +4,16 @@
   <div class="home">
       <!-- 我是home组件 -->
       <!-- {{ arr.join('、') }} -->
+      <chacao></chacao>
+      <chacao></chacao>
+      <chacao></chacao>
       <div class="msg">
           {{ msg }} {{ num }}
-          <p>易烊千玺超级帅 无敌帅 </p>
+          <p>易烊千玺超级帅 无敌帅 世界上最帅最优秀的男孩子</p>
           <p>秦霄贤也是</p>
           Dqx是一个聪明的姑娘
       </div>
+      <chacao></chacao>
       <!-- <ul class="list">
           <li> 11.28</li>
           <li>{{ 5*5 }}</li>
@@ -23,9 +27,13 @@
 </template>
 // 写JS
 <script>
+import chacao from './chacao';
 export default {
     // 当前组件的名字
     name:'home',
+    components:{
+        chacao
+    },
     // data函数里面是命名变量的
     data(){
         return {

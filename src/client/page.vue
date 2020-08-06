@@ -39,8 +39,34 @@
      <!-- <img v-bind:src="img" >
      <img :src="img" > -->
      <div>我是父组件</div>
+<!-- 匿名插槽 -->
+     <!-- <chacao> -->
+        <!-- <div>你是默认的也没用，我是V8，显示me</div> -->
+    <!-- </chacao> -->
+    <!-- <chacao> -->
+        <!-- <div>你是默认的也没用，我是V8，显示me</div> -->
+    <!-- </chacao> -->
+<!-- 具名插槽 -->
+    <!-- <chacao>
+        <template v-slot:header>
+            <div>发发发111</div>
+        </template>
+        <template v-slot:footer>
+            <div>发发发222</div>
+        </template>
+        <div>我是大牛🐂1</div>
+        <div>我是大牛🐂2</div>
+    </chacao> -->
+<!-- 作用域插槽 -->
     <chacao>
-        <div>你是默认的也没用，我是V8，显示me</div>
+        <div class="aaa" slot-scope="a">
+            <div v-for="(item,index) in a.arr" :key="index">{{ item }}</div>
+        </div>
+    </chacao>
+    <chacao>
+        <template class="bbb" v-slot="a">
+            <span v-for="(item,index) in a.arr" :key="index">{{ item }}</span>
+        </template>
     </chacao>
   </div>
 </template>
@@ -48,14 +74,14 @@
 import chacao from './chacao';
 export default {
     name:'page',
-    // 注册一个组件，使其合法化
+    // 注册一个子组件，使其合法化
     components:{
         chacao
     },
     data(){
         return {
             userInfo1:`<div>千秋万代</div>`,
-            isShow:'',
+            isShow:true,
             str:'reset',
             userInfo:204,
             info:18,
@@ -83,12 +109,6 @@ export default {
         }
     }, 
     methods:{
-        onchanges(){
-            console.log(this.message)
-        },
-        handleClick(){
-            console.log('====')
-        }
     },
     mounted(){
         

@@ -17,6 +17,7 @@ Vue特点：
     3、渐进式框架（只用Vue模板）
     4、MVVM框架
     5、虚拟DOM
+    6、组件复用
 
 MVC->MVVM
 C:controller控制器
