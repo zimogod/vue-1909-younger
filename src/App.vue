@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <!-- 显示容器组件 -->
-    <router-link to="/page">page</router-link>
+    <!-- 显示容器组件:显示内容 -->
     <router-view />
   </div>
 </template>

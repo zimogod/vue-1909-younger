@@ -7,24 +7,12 @@ Vue.use(VueRouter)
 
   const routes = [
   {
+    // 默认的根组件，默认显示的组件
     path: '/',
     name: 'home',
     // 路由懒加载
-    component: () => import('../client/home.vue')
+    component: () => import('../components/home.vue')
   },
-  {
-    path: '/page',
-    name: 'page',
-    component: () => import('../client/page.vue')
-  },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
 ]
 
 const router = new VueRouter({
