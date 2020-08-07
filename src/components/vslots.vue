@@ -13,13 +13,14 @@
       <slot></slot> -->
 <!-- 作用域插槽 -->
     <slot :obj="obj"></slot>
-    <div>{{ num }}--{{ list }}</div>
+    <!-- <div>{{ num }}--{{ list }}</div> -->
+    <div>{{ num }}-----++++{{ obj1 }}</div>
   </div>
 </template>
 <script>
 export default {
     name:'vslots',
-    props:['num','list'],
+    props:['num','list','obj1'],
     data(){
         return {
           obj:{

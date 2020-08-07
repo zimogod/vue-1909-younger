@@ -1,0 +1,34 @@
+props:用于接收父组件传递到子组件的数据（每个组件都有自己的props）
+两种写法：
+    1、以数组的方式
+        props:['数据1','数据1','数据1']
+    2、以对象的方式
+        props:{
+            数据1:{
+                type:类型检测，
+                default:默认值,
+                required:true, true为必传，false可以不传 
+                validator:验证规则
+            }
+        }
+        一般写法：
+            props:{
+                数据1:{
+                        type:类型检测，
+                        default:默认值,
+                        required:true, true为必传，false可以不传 
+                    }
+                }
+
+type:Number,
+default:0,
+required:true,
+validator:(value)=>{
+    return value == 100 ? 100 : 10;
+}
+
+组件通信传递数据时：
+    1、以v-bind绑定的数据，就必须是data函数里面的
+       响应式数据（必须得data函数里面定义）
+    2、不用v-bind绑定的数据，他传递时，都以字符串
+       的形式传递过去的（死数据:vue追踪不到）

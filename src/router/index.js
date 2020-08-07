@@ -13,6 +13,13 @@ Vue.use(VueRouter)
     // 路由懒加载
     component: () => import('../components/home.vue')
   },
+  {
+    // 默认的根组件，默认显示的组件
+    path: '/vslots',
+    name: 'vslots',
+    // 路由懒加载
+    component: () => import('../components/vslots.vue')
+  },
 ]
 
 const router = new VueRouter({
