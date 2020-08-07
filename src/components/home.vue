@@ -53,7 +53,10 @@ export default {
   methods:{
     addNum(){
       this.num++
-    }
+    },
+    times(){
+      this.num++
+    },
   },
   beforeMount() {
     console.log("挂载前");
@@ -64,9 +67,7 @@ export default {
     // this.$http.get('http://localhost:3001/allData').then(res=>{
     //   console.log(res.data)
     // })
-    this.timer = setInterval(()=>{
-      console.log(this.num++)
-    },500)
+    this.timer = setInterval(this.times,500)
   },
   beforeCreate() {
     console.log("创建前");

@@ -6,9 +6,15 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
   const routes = [
+    {
+      // 默认的根组件，默认显示的组件
+      path: '/',
+      name: 'index',
+      // 路由懒加载
+      component: () => import('../components/index.vue')
+    },
   {
-    // 默认的根组件，默认显示的组件
-    path: '/',
+    path: '/home',
     name: 'home',
     // 路由懒加载
     component: () => import('../components/home.vue')
