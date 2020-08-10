@@ -1,0 +1,45 @@
+注意：如果需要跳转得去router文件夹内注册路由信息
+     如果不需要跳转，只是组件嵌套，则不需注册路由信息
+
+在ES6语法规定：
+    一个函数只有一行函数体的时候，可以省略大括号，还有return
+
+    var obj = {
+        component:()=>import('../components/index.vue')
+    }
+
+vue-router:
+    不是vue中的组件（和vue没有关系），后期才开发出来用于
+    路由跳转
+
+    第三方库：vue-router，专门是为vue开发出来的路由跳转
+
+    默认的根组件只有一个，唯一的  path:'/'
+
+    有三种跳转方式：
+        以下三种跳转方式都可以手动切换，改mode字段即可
+
+        history：最正常的跳转方式,把HTML5中的 HTML5History进行了封装
+            www.baidu.com/index/page/income
+        hash：（全称hashHistory）
+            www.baidu.com/#/index/page/income
+        abstract：（浏览器端无法使用）
+
+        router文件夹下面：
+            所有的路由信息都被管理在一个数组里面
+            index.js:以对象的方式配置管理单个组件的路由信息
+            组件的路由信息配置：
+                path:'路径'  必须要配置的
+                component:'接收import语法引入的组件'
+                name:'组件名'  可省略（特殊跳转，必须传）
+
+        组件内：
+            router-link是vue-router的内置组件，
+            原理就是创建a标签，通过a标签内的href
+            进行跳转（锚点），to其实就是href
+            to:'传路由信息中path' 必须保持一致
+
+            router-view:vue-router的内置组件，
+            用于路由跳转时，显示当前组件的容器
+            可以多处使用
+

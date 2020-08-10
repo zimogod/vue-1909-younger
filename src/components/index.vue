@@ -1,6 +1,8 @@
 <template>
   <div class="index">
     index组件:
+    <!-- 声明式跳转 -->
+    <router-link to="/aaa">去aaa</router-link>
     <keep-alive :include="/comA|comC/">
       <component :is="isShow"></component>
     </keep-alive>

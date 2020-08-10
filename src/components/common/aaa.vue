@@ -1,6 +1,8 @@
 <template>
   <div class="comA">
-    <div>A组件</div>
+    <!-- http://localhost:8080/aaa -->
+    <!-- http://localhost:8080/#/aaa -->
+    <div>A组件===</div>
     <div>{{ num }}</div>
   </div>
 </template>
@@ -14,7 +16,7 @@ export default {
     }
   },
   mounted(){
-    
+    console.log(this)
   },
   activated() {
     console.log("激活生命周期函数");
