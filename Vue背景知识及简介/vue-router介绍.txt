@@ -44,6 +44,8 @@ vue-router:
                 component:'接收import语法引入的组件'
                 name:'组件名'  可省略（特殊跳转，必须传）
 
+                
+
         组件内：
             router-link是vue-router的内置组件，
             原理就是创建a标签，通过a标签内的href
