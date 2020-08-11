@@ -40,6 +40,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   // 跳转的方式
   mode: 'hash',//history
+  // 打包之后的路径
   base: process.env.BASE_URL,
   routes
 })  
