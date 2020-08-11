@@ -44,7 +44,7 @@ vue-router:
                 component:'接收import语法引入的组件'
                 name:'组件名'  可省略（特殊跳转，必须传）
 
-                
+
 
         组件内：
             router-link是vue-router的内置组件，
@@ -69,6 +69,8 @@ vue-router:
             from:你从哪里来的路由信息      home
             next:回调函数，可以放行  
                 next()相当于放行了 
+
+
 
             if条件中才进行判断拦截，else 必须放行
         举例：
