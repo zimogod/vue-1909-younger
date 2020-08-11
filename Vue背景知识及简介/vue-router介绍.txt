@@ -27,6 +27,8 @@ vue-router:
 
         以下三种跳转方式都可以手动切换，改mode字段即可
 
+
+
         history：最正常的跳转方式,把HTML5中的 HTML5History进行了封装
             www.baidu.com/index/page/income
         hash：（全称hashHistory）
