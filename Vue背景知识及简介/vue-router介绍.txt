@@ -61,6 +61,44 @@ vue-router:
                 1、一定是设置在当前路由的直接上级路由信息内
                 2、必须是全路径 
 
+地址栏里面的url由以下几部分组成：
+    域名：协议、域名、子域名、端口号
+    www.junmoxiao.com/vuecms/index?page=xxx
+    vuecms:是路径
+     params：参与跳转的参数叫做params
+     vuecms其实就是 params
+    域名后面跟的是路径
+
+    ?page=xxx :参数，不是真正的url，不参与跳转
+    ？后面的参数叫左query
+    query其实就是不参与
+
+$router:所有的路由信息
+$route:当前跳转组件的路由信息
+
+共同点：
+    1、query、params都是参数，然后台返回给前端不同的数据
+    2、都可以动态传参  
+    3、可以一块组合传递参数 
+params:
+    在路由配置信息中写动态的参数 例如：path '/page/:id', :id就是动态的params
+    在跳转到的那个组件内可以获取params
+    获取：this.$route.params.xxx  
+
+query:
+    不是url，不参与跳转，主要是给后台传递参数，也可以根据这个query参数，
+    返回给前端不同的数据    
+
+编程式的导航：
+    1、如果传递params参数，跳转时，必须使用name进行跳转，
+       否则获取不到params（无效），query是正常使用
+       是用path进行跳转，只能正常使用query参数
+    2、params和query同时或者单个传递，使用name跳转，全部正常使用
+
+面试题：什么时候必须得通过name属性进行跳转？
+    答案：使用编程式导航时，进行传递params参数时，通过name进行跳转，
+         否则无效
+
 路由守卫：路由拦截
     全局路由钩子：写在index.js   常用  
         前置守卫（常用）：参数全部固定
