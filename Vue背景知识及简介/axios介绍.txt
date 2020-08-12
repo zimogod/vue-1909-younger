@@ -1,0 +1,11 @@
+下载：
+    cnpm install axios -S 
+
+axios:
+    原理：基于ES6中的Promise封装的
+
+    1、是单独的Promise库，用来进行前后端交互的（请求数据的）
+    2、axios不能使用Vue.use()进行全局使用（原因是axios内部没有install方法）
+
+
+

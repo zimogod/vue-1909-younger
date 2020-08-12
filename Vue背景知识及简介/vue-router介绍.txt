@@ -1,3 +1,25 @@
+/**
+hash和history及abstract区别：
+    history：跳转路径时，页面每次需要和服务端进行交互，服务端返回最新的
+             页面给前端，前端展示
+    hash：每次跳转，页面不和服务端进行交互 （真正的锚点跳转）
+
+    abstract：用于node环境中的路由跳转，浏览器无法使用
+
+vue-router的实现原理：
+    1、history: new HTML5History()
+    2、hash: new HashHistory()
+    3、abstract: new AbstractHistory()
+
+路由跳转原理：
+    1、调用了vue-router里面的this.$router.push()方法
+    2、第一步触发了浏览器中History对象中的push()方法
+    3、第二步触发了History对象中的transitionTo()方法，检测路由变化的函数
+    4、第三步触发了History对象中的updateRoute()方法，更新路由,路径已经跳转了 
+    5、Vue.$router = updateRoute()
+    6、Vue.render()   render()渲染、更新页面的
+*/
+
 注意：如果需要跳转得去router文件夹内注册路由信息
      如果不需要跳转，只是组件嵌套，则不需注册路由信息
 
